@@ -85,14 +85,24 @@ $arr4 = array_merge_recursive($arr1, $arr2);
 
 /* 
  * 合并数组
+ * ord ASCII码
+ * chr 返回字符
 */
 function mystrtoupper($str) {
     #按每个字节切割
     $s_arr = str_split($str, 1);
-    
+    $r = "";
     foreach ($s_arr as $v) {
-        echo $v;
+        if (ord($v)>=97 && ord($v)<=122) {
+            $v -= 32;
+        }
+        $r .= chr($v);
     }
+    return $r;
 }
-$str = "asb毛子";
-mystrtoupper($str);
+$str = "ABCS毛子";
+echo mystrtoupper($str);
+
+/* 
+ * getimagesize判断图片
+*/
